@@ -143,6 +143,13 @@ function Say(Text)
   SayMessageRequest:FireServer('[Autobot] '.. Text, 'All')
 end
 
+for _, v in Players:GetChildren() do
+  if v.UserId == 341858002 then
+    Say('Unable to start autobot due to presence of AmazedBot.')
+    return
+  end
+end
+
 local Teleporting = false
 function EnterHelicopter()
   local Vehicles = require(ReplicatedStorage.Game.Vehicle)
