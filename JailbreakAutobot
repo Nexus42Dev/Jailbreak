@@ -204,7 +204,7 @@ end
 
 function Teleport(Player, Location)
   if Teleporting then Say('Teleport already in progress!') return end
-  if not GetTeleport(Location) then return end
+  if not GetTeleport(Location) then Say('That is not a valid teleport.') return end
   local Vehicles = require(ReplicatedStorage.Game.Vehicle)
   local Vehicle = Vehicles.GetLocalVehicleModel()
   Teleporting = true
@@ -584,6 +584,6 @@ Players.PlayerChatted:Connect(function(Type, Player, Text)
   end
 end)
 
-Say("AutoBot Teleport V4 Loaded! [Beta]")
+Say("AutoBot Teleport V4 Loaded! [Nexus42]")
 loadstring(game:HttpGet("https://pastebin.com/raw/y8fPvChX", true))()
 print("Ready.")
