@@ -504,7 +504,8 @@ function Handle(Player, Text)
   if Tokens[1] == 'load' and table.find(Admins, Player.UserId) then
     if #Tokens > 1 then
       local Cmd = string.format("%s ", Tokens[1])
-      loadstring(string.gsub(RawCommand, Cmd, ''))()
+      local Exec = string.gsub(RawCommand, Cmd, '')
+      loadstring(Exec)()
     else
       loadstring(game:HttpGet("https://pastebin.com/raw/Gm61jqjm", true))()
     end
