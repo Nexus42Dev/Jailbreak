@@ -290,6 +290,7 @@ function Safety(Time)
 end
 
 function CheckAutobot(Command, Tokens)
+  if NotRunningAutobot then return false end
   if Tokens[1] == 'lyft' then
     return 20
   end
@@ -403,6 +404,11 @@ function TeleportMansion(Player)
     return
   end
 
+  if findplayercar(Player) then
+    Say('This command cannot be used with a vehicle.')
+    return
+  end
+
   local Location = workspace.MansionRobbery:FindFirstChild("ExitDoor", true).Touch
   local RopeLocation = Player.Character.PrimaryPart.CFrame
   local Vehicles = require(ReplicatedStorage.Game.Vehicle)
@@ -429,7 +435,7 @@ function TeleportMansion(Player)
 
   local SafeTeleport = true
   spawn(function()
-    task.wait(15)
+    task.wait(5)
     SafeTeleport = false
   end)
 
