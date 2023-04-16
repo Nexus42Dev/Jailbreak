@@ -32,7 +32,7 @@ local HelpText = ">tp >teleport (Teleport Car) >spawn (Spawn Car) >escape (Auto 
 
 function FindSpec(Vehicle)
   local Specs = require(ReplicatedStorage.Module.UI).CircleAction.Specs
-  for _, v in Specs do
+  for _, v in pairs(Specs) do
     if not v.IsVehicle then continue end
     if not v.ValidRoot then continue end
     if v.Name ~= "Enter Driver" and v.Name ~= "Hijack" then continue end
@@ -47,7 +47,7 @@ function FindClosestHeli()
   local Range = 5000
   local Closest
   
-  for _, v in Vehicles do
+  for _, v in pairs(Vehicles) do
     if v.Name ~= 'Heli' then continue end
     if v:GetAttribute("Locked") then continue end
     if v.Seat.PlayerName.Value ~= "" then continue end
@@ -65,9 +65,9 @@ end
 function findplayercar(player)
   local Vehicles = workspace.Vehicles:GetChildren()
 
-  for _, v in Vehicles do
+  for _, v in pairs(Vehicles) do
     if v:FindFirstChild("Seat") then
-      for _, v2 in v:GetChildren() do
+      for _, v2 in pairs(v:GetChildren()) do
         if v2.Name == "Seat" or v2.Name == "Passenger" then
           if v2.PlayerName.Value == player.Name then
             return v
@@ -104,7 +104,7 @@ end
 function GetTeleport(Location)
   local Aliases
   local TeleportData
-  for i, v in Teleports do
+  for i, v in pairs(Teleports) do
     if table.find(i, Location) then
       TeleportData = v
       Aliases = i
@@ -143,7 +143,7 @@ function Say(Text)
   SayMessageRequest:FireServer('[Autobot] '.. Text, 'All')
 end
 
-for _, v in Players:GetChildren() do
+for _, v in pairs(Players:GetChildren()) do
   if v.UserId == 341858002 then
     Say('Unable to start autobot due to presence of AmazedBot.')
     return
@@ -322,7 +322,7 @@ function SpawnCar(Player, CarName)
   end
 
   local VehicleName
-  for _, v in ReplicatedStorage.Resource.Vehicles:GetChildren() do
+  for _, v in pairs(ReplicatedStorage.Resource.Vehicles:GetChildren()) do
     local Name = string.sub(v.Name, 0, #CarName)
     if string.lower(Name) == string.lower(CarName) then
       VehicleName = v.Name
@@ -336,7 +336,7 @@ function SpawnCar(Player, CarName)
   end
 
   local TargetVehicle
-  for _, v in workspace.Vehicles:GetChildren() do
+  for _, v in pairs(workspace.Vehicles:GetChildren()) do
     if v.Name ~= VehicleName then continue end
     if v:GetAttribute("Locked") then continue end
     if v.Seat.PlayerName.Value ~= "" then continue end
@@ -396,7 +396,6 @@ function SpawnCar(Player, CarName)
   RopePull.CanCollide = true
   Rope.WinchEnabled = false
   RopePull.Massless = false
-
   Teleporting = false
 end
 
@@ -574,7 +573,7 @@ function Handle(Player, Text)
 
     local TargetPlayer
     if #Tokens >= 3 and table.find(Admins, Player.UserId) then
-      for _, v in Players:GetChildren() do
+      for _, v in pairs(Players:GetChildren()) do
         if string.sub(string.lower(v.Name), 0, #Tokens[2]) == Tokens[2] then
           TargetPlayer = v
         end
