@@ -211,7 +211,9 @@ end
 
 function Teleport(Player, Location)
   if Teleporting then Say('Teleport already in progress!') return end
-  if not {GetTeleport(Location)}[1] then Say('That is not a valid teleport.') return end
+
+  local PlayerTeleport, CarTeleport = GetTeleport(Location)
+  if not PlayerTeleport then Say('That is not a valid teleport.') return end
   local Vehicles = require(ReplicatedStorage.Game.Vehicle)
   local Vehicle = Vehicles.GetLocalVehicleModel()
   Teleporting = true
