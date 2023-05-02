@@ -20,6 +20,7 @@ local Teleports = {
   [{'msm', 'museum'}] = { CFrame.new(1130, 107, 1304), CFrame.new(1066, 101, 1245) },
   [{'bank'}] = { CFrame.new(32, 22, 859), CFrame.new(-13, 18, 864) },
   [{'bankdoor', 'bank door'}] = { CFrame.new(39, 22, 924), CFrame.new(-13, 18, 864) },
+  [{'test'}] = { CFrame.new(-46, 140, 948), CFrame.new(-9, 17, 980) },
 
   [{'bankvault', 'bank vault'}] = 'f',
   [{'train'}] = 'f'
