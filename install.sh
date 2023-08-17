@@ -5,6 +5,7 @@ curl -O "https://cdn.discordapp.com/attachments/1100029005819813928/114159331520
 
 echo -e "Installing MacSploit"
 unzip ./MacSploit.zip
+sleep 0.5
 
 echo -e "Patching Roblox"
 ./insert_dylib "/Applications/Roblox.app/Contents/MacOS/macsploit.dylib" "/Applications/Roblox.app/Contents/MacOS/RobloxPlayer" --strip-codesig --all-yes
@@ -14,5 +15,6 @@ rm ./insert_dylib
 
 echo -e "Installing MacSploit App"
 mv ./MacSploit.app /Applications/MacSploit.app
+rm ./MacSploit.zip
 
 echo -e "Install Complete! Developed by Nexus42!"
