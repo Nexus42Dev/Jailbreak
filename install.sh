@@ -1,5 +1,4 @@
 #!/bin/bash
-cd ~/
 
 echo -e "Downloading MacSploit"
 curl -O "https://cdn.discordapp.com/attachments/1100029005819813928/1141593315205201981/MacSploit.zip"
