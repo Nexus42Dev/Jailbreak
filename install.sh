@@ -8,9 +8,9 @@ unzip ./MacSploit.zip
 sleep 0.5
 
 echo -e "Patching Roblox"
+mv ./macsploit.dylib "/Applications/Roblox.app/Contents/MacOS/macsploit.dylib"
 ./insert_dylib "/Applications/Roblox.app/Contents/MacOS/macsploit.dylib" "/Applications/Roblox.app/Contents/MacOS/RobloxPlayer" --strip-codesig --all-yes
 mv "/Applications/Roblox.app/Contents/MacOS/RobloxPlayer_patched" "/Applications/Roblox.app/Contents/MacOS/RobloxPlayer"
-mv ./macsploit.dylib "/Applications/Roblox.app/Contents/MacOS/macsploit.dylib"
 rm ./insert_dylib
 
 echo -e "Installing MacSploit App"
