@@ -14,6 +14,7 @@ mv ./macsploit.dylib "/Applications/Roblox.app/Contents/MacOS/macsploit.dylib"
 rm ./insert_dylib
 
 echo -e "Installing MacSploit App"
+[ -d "/Applications/MacSploit.app" ] && rm -rf "/Applications/MacSploit.app"
 mv ./MacSploit.app /Applications/MacSploit.app
 rm ./MacSploit.zip
 
