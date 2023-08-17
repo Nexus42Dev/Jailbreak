@@ -7,11 +7,12 @@ echo -e "Installing MacSploit"
 unzip ./MacSploit.zip
 
 echo -e "Patching Roblox"
-./insert_dylib /Applications/Roblox.app/Contents/MacOS/macsploit.dylib /Applications/Roblox.app/Contents/MacOS/RobloxPlayer --strip-codesig --all-yes
-mv ./macsploit.dylib /Applications/Roblox.app/Contents/MacOS/macsploit.dylib
+./insert_dylib "/Applications/Roblox.app/Contents/MacOS/macsploit.dylib" "/Applications/Roblox.app/Contents/MacOS/RobloxPlayer" --strip-codesig --all-yes
+mv "/Applications/Roblox.app/Contents/MacOS/RobloxPlayer_patched" "/Applications/Roblox.app/Contents/MacOS/RobloxPlayer"
+mv ./macsploit.dylib "/Applications/Roblox.app/Contents/MacOS/macsploit.dylib"
 rm ./insert_dylib
 
 echo -e "Installing MacSploit App"
 mv ./MacSploit.app /Applications/MacSploit.app
 
-echo -e "Install Complete!"
+echo -e "Install Complete! Developed by Nexus42!"
